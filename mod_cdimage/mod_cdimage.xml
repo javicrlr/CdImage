@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.3"
+	client="site"
+	method="upgrade">
+	<name>Show Image Module CD1</name>
+	<author>Javier Cruz Lora</author>
+	<creationDate>Julio 2014</creationDate>
+	<copyright>Copyright (C) 2014 Javier Cruz Lora. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>contact@templatef5.com</authorEmail>
+	<authorUrl>www.templatef5.com</authorUrl>
+	<version>1.2.0</version>
+	<description>MOD_CDIMAGE_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_cdimage">mod_cdimage.php</filename>
+		<filename module="mod_cdimage">mod_cdimage.xml</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>css</folder>
+		<folder>img</folder>
+		<folder>inc</folder>
+		<folder>js</folder>
+		<folder>less</folder>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+	</files>
+	<updateservers>
+        <server type="extension" priority="1" name="Show Image Module CD1">http://www.cloudesign.es/update_server/cdimage_update.xml</server>
+    </updateservers>
+	<languages>
+		<language tag="es-ES">language/es-ES/es-ES.mod_cdimage.ini</language>
+		<language tag="es-ES">language/es-ES/es-ES.mod_cdimage.sys.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_cdimage.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_cdimage.sys.ini</language>
+	</languages>
+	<help key="JHELP_EXTENSIONS_MODULE_CDIMAGE" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="show_image_cd"
+			        type="Repeatable"
+			        icon="list"
+			        description="MOD_CDIMAGE_XML_REPEATABLE_DESCRIPTION"
+			        label="MOD_CDIMAGE_XML_REPEATABLE_LABEL"
+			        default="{'template':['Layout','Simple snippet'],'location':['layout1.html','snippet1.html'],'description':['HTMLLayout','Simple HTML snippet']}">
+			        <fields name="params">
+			        <fieldset hidden="true" name="show_image_cd_modal" repeat="true">
+			                 <field name="cdimagetitle"
+			                        label="MOD_CDIMAGE_XML_REPEATABLE_TITLE"
+			                        size="20"
+			                        type="text" />
+							<field name="cdimagetext"
+			                        label="MOD_CDIMAGE_XML_REPEATABLE_TEXT"
+			                        size="20"
+			                        type="textarea" />
+							<field name="cdimageurllink"
+			                        label="MOD_CDIMAGE_XML_REPEATABLE_URLLINK"
+			                        size="20"
+			                        type="textarea" />
+							<field name="cdimageiconselect" type="list" default=""
+									label="MOD_CDIMAGE_XML_SELECTTYPEICON_LABEL">
+									<option value="">MOD_CDIMAGE_XML_SELECTTYPEDEFAULT_LABEL</option>
+									<option value="moreicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONMORE_LABEL</option>
+									<option value="gotoicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONGOTO_LABEL</option>
+									<option value="playicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONPLAY_LABEL</option>
+									<option value="cloudicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONCLOUD_LABEL</option>
+									<option value="fileticondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONDOCUMENT_LABEL</option>
+									<option value="okicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONOK_LABEL</option>
+									<option value="searchicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONLENT_LABEL</option>
+									<option value="toolicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONTOLL_LABEL</option>
+									<option value="homeicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONHOME_LABEL</option>
+									<option value="contacticondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONCONTACT_LABEL</option>
+									<option value="penicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONPEN_LABEL</option>
+									<option value="arrobaicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONARROBA_LABEL</option>
+									<option value="binocularsicondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONBINACULAR_LABEL</option>
+									<option value="playbcticondark.png">MOD_CDIMAGE_XML_SELECTTYPEICONPLAYB_LABEL</option>
+							</field>
+							<field name="cdimageimage" 
+									label="MOD_CDIMAGE_XML_REPEATABLE_IMAGE" 
+									type="media" 
+									directory="stories" />
+			        </fieldset>
+			        </fields>
+				</field>
+				<field name="cdimageselecttype" type="list" default=""
+					label="MOD_CDIMAGE_XML_SELECTTYPE_LABEL"
+					description="MOD_CDIMAGE_XML_SELECTTYPE_DESC">
+					<option value="">MOD_CDIMAGE_XML_SELECTTYPEDEFAULT_LABEL</option>
+					<option value="1">MOD_CDIMAGE_XML_SELECTTYPELENT_LABEL</option>
+					<option value="2">MOD_CDIMAGE_XML_SELECTTYPETAP1_LABEL</option>
+					<option value="3">MOD_CDIMAGE_XML_SELECTTYPETAP2_LABEL</option>
+				</field>
+				<field name="cdimagecircle" type="radio" class="btn-group" default="0" label="MOD_CDIMAGE_XML_CIRCLE_LABEL" description="MOD_CDIMAGE_XML_CIRCLE_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="cdimageanimateicons" type="radio" class="btn-group" default="1" label="MOD_CDIMAGE_XML_ANIMATEICONS_LABEL" description="MOD_CDIMAGE_XML_ANIMATEICONS_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="cdimageanimatedirection" type="list" default="1"
+					label="MOD_CDIMAGE_XML_ANIMATEDIRECTIONS_LABEL"
+					description="MOD_CDIMAGE_XML_ANIMATEDIRECTIONS_DESC">
+					<option value="">MOD_CDIMAGE_XML_ANIMATEDIRECTIONSSELECT_LABEL</option>
+					<option value="0">MOD_CDIMAGE_XML_ANIMATEDIRECTIONSLEFT_LABEL</option>
+					<option value="1">MOD_CDIMAGE_XML_ANIMATEDIRECTIONSBOTTOM_LABEL</option>
+					<option value="2">MOD_CDIMAGE_XML_ANIMATEDIRECTIONSRIGHT_LABEL</option>
+					<option value="3">MOD_CDIMAGE_XML_ANIMATEDIRECTIONSTOP_LABEL</option>
+				</field>
+				<field name="cdimagetapcolor" class="" type="color" default="#FFFFFF"
+						label="MOD_CDIMAGE_XML_TAPCOLOR_LABEL"
+						description="MOD_CDIMAGE_XML_TAPCOLOR_DESC" />
+				<field name="cdimagetapopacity" type="list" default="0.6"
+					label="MOD_CDIMAGE_XML_TAPOPACITY_LABEL"
+					description="MOD_CDIMAGE_XML_TAPOPACITY_DESC">
+					<option value="">MOD_CDIMAGE_XML_TAPOPACITYDEFAULT_LABEL</option>
+					<option value="0.1">MOD_CDIMAGE_XML_TAPOPACITY1_LABEL</option>
+					<option value="0.2">MOD_CDIMAGE_XML_TAPOPACITY2_LABEL</option>
+					<option value="0.3">MOD_CDIMAGE_XML_TAPOPACITY3_LABEL</option>
+					<option value="0.4">MOD_CDIMAGE_XML_TAPOPACITY4_LABEL</option>
+					<option value="0.5">MOD_CDIMAGE_XML_TAPOPACITY5_LABEL</option>
+					<option value="0.6">MOD_CDIMAGE_XML_TAPOPACITY6_LABEL</option>
+					<option value="0.7">MOD_CDIMAGE_XML_TAPOPACITY7_LABEL</option>
+					<option value="0.8">MOD_CDIMAGE_XML_TAPOPACITY8_LABEL</option>
+					<option value="0.9">MOD_CDIMAGE_XML_TAPOPACITY9_LABEL</option>
+					<option value="1">MOD_CDIMAGE_XML_TAPOPACITY10_LABEL</option>
+				</field>
+				<field name="cdimageiddiv" type="list" default="1"
+					label="MOD_CDIMAGE_XML_TYPEEXECT_LABEL"
+					description="MOD_CDIMAGE_XML_TYPEEXECT_DESC">
+					<option value="">MOD_CDIMAGE_XML_SELECTTYPEEXECTDEFAULT_LABEL</option>
+					<option value="0">MOD_CDIMAGE_XML_SELECTTYPEEXECT0_LABEL</option>
+					<option value="1">MOD_CDIMAGE_XML_SELECTTYPEEXECT1_LABEL</option>
+					<option value="2">MOD_CDIMAGE_XML_SELECTTYPEEXECT2_LABEL</option>
+					<option value="3">MOD_CDIMAGE_XML_SELECTTYPEEXECT3_LABEL</option>
+					<option value="4">MOD_CDIMAGE_XML_SELECTTYPEEXECT4_LABEL</option>
+					<option value="5">MOD_CDIMAGE_XML_SELECTTYPEEXECT5_LABEL</option>
+					<option value="6">MOD_CDIMAGE_XML_SELECTTYPEEXECT6_LABEL</option>
+				</field>
+				<field name="cdimagecolumnspc" type="list" default="3"
+					label="MOD_CDIMAGE_XML_IMAGESPC_LABEL"
+					description="MOD_CDIMAGE_XML_IMAGESPC_DESC">
+					<option value="">MOD_CDIMAGE_XML_IMAGESDEFAULT_LABEL</option>
+					<option value="1">MOD_CDIMAGE_XML_1IMAGES_LABEL</option>
+					<option value="2">MOD_CDIMAGE_XML_2IMAGES_LABEL</option>
+					<option value="3">MOD_CDIMAGE_XML_3IMAGES_LABEL</option>
+					<option value="4">MOD_CDIMAGE_XML_4IMAGES_LABEL</option>
+					<option value="5">MOD_CDIMAGE_XML_5IMAGES_LABEL</option>
+					<option value="6">MOD_CDIMAGE_XML_6IMAGES_LABEL</option>
+					<option value="7">MOD_CDIMAGE_XML_7IMAGES_LABEL</option>
+					<option value="8">MOD_CDIMAGE_XML_8IMAGES_LABEL</option>
+					<option value="9">MOD_CDIMAGE_XML_9IMAGES_LABEL</option>
+					<option value="10">MOD_CDIMAGE_XML_10IMAGES_LABEL</option>
+					<option value="11">MOD_CDIMAGE_XML_11IMAGES_LABEL</option>
+					<option value="12">MOD_CDIMAGE_XML_12IMAGES_LABEL</option>
+				</field>
+				<field name="cdimagecolumnstablet" type="list" default="2"
+					label="MOD_CDIMAGE_XML_IMAGESTABLET_LABEL"
+					description="MOD_CDIMAGE_XML_IMAGESTABLET_DESC">
+					<option value="">MOD_CDIMAGE_XML_IMAGESDEFAULT_LABEL</option>
+					<option value="1">MOD_CDIMAGE_XML_1IMAGES_LABEL</option>
+					<option value="2">MOD_CDIMAGE_XML_2IMAGES_LABEL</option>
+					<option value="3">MOD_CDIMAGE_XML_3IMAGES_LABEL</option>
+					<option value="4">MOD_CDIMAGE_XML_4IMAGES_LABEL</option>
+					<option value="5">MOD_CDIMAGE_XML_5IMAGES_LABEL</option>
+					<option value="6">MOD_CDIMAGE_XML_6IMAGES_LABEL</option>
+					<option value="7">MOD_CDIMAGE_XML_7IMAGES_LABEL</option>
+					<option value="8">MOD_CDIMAGE_XML_8IMAGES_LABEL</option>
+					<option value="9">MOD_CDIMAGE_XML_9IMAGES_LABEL</option>
+					<option value="10">MOD_CDIMAGE_XML_10IMAGES_LABEL</option>
+					<option value="11">MOD_CDIMAGE_XML_11IMAGES_LABEL</option>
+					<option value="12">MOD_CDIMAGE_XML_12IMAGES_LABEL</option>
+				</field>
+				<field name="cdimagecolumnsmobile" type="list" default="1"
+					label="MOD_CDIMAGE_XML_IMAGESMOBILE_LABEL"
+					description="MOD_CDIMAGE_XML_IMAGESMOBILE_DESC">
+					<option value="">MOD_CDIMAGE_XML_IMAGESDEFAULT_LABEL</option>
+					<option value="1">MOD_CDIMAGE_XML_1IMAGES_LABEL</option>
+					<option value="2">MOD_CDIMAGE_XML_2IMAGES_LABEL</option>
+					<option value="3">MOD_CDIMAGE_XML_3IMAGES_LABEL</option>
+					<option value="4">MOD_CDIMAGE_XML_4IMAGES_LABEL</option>
+					<option value="5">MOD_CDIMAGE_XML_5IMAGES_LABEL</option>
+					<option value="6">MOD_CDIMAGE_XML_6IMAGES_LABEL</option>
+					<option value="7">MOD_CDIMAGE_XML_7IMAGES_LABEL</option>
+					<option value="8">MOD_CDIMAGE_XML_8IMAGES_LABEL</option>
+					<option value="9">MOD_CDIMAGE_XML_9IMAGES_LABEL</option>
+					<option value="10">MOD_CDIMAGE_XML_10IMAGES_LABEL</option>
+					<option value="11">MOD_CDIMAGE_XML_11IMAGES_LABEL</option>
+					<option value="12">MOD_CDIMAGE_XML_12IMAGES_LABEL</option>
+				</field>
+				<field name="cdimageiconwidth" class="" type="text" default="100"
+						label="MOD_CDIMAGE_XML_ICONWIDTH_LABEL"
+						description="MOD_CDIMAGE_XML_ICONWIDTH_DESC" />
+				<field name="cdimagetitlefontsize" type="list" default=""
+					label="MOD_CDIMAGE_XML_TITLEFONTSIZE_LABEL"
+					description="MOD_CDIMAGE_XML_TITLEFONTSIZE_DESC">
+					<option value=""></option>
+					<option value="6">6</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="14">14</option>
+					<option value="18">18</option>
+					<option value="24">24</option>
+					<option value="30">30</option>
+					<option value="36">36</option>
+					<option value="c48">48</option>
+					<option value="60">60</option>
+					<option value="72">72</option>
+				</field>
+				<field name="cdimagetitlecolor" class="" type="color" default=""
+						label="MOD_CDIMAGE_XML_TITLECOLOR_LABEL"
+						description="MOD_CDIMAGE_XML_TITLECOLOR_DESC" />
+				<field name="cdimagepfontsize" type="list" default=""
+					label="MOD_CDIMAGE_XML_PFONTSIZE_LABEL"
+					description="MOD_CDIMAGE_XML_PFONTSIZE_DESC">
+					<option value=""></option>
+					<option value="6">6</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="14">14</option>
+					<option value="18">18</option>
+					<option value="24">24</option>
+					<option value="30">30</option>
+					<option value="36">36</option>
+					<option value="c48">48</option>
+					<option value="60">60</option>
+					<option value="72">72</option>
+				</field>
+				<field name="cdimagepcolor" class="" type="color" default=""
+						label="MOD_CDIMAGE_XML_PCOLOR_LABEL"
+						description="MOD_CDIMAGE_XML_PCOLOR_DESC" />
+			</fieldset>
+			<fieldset
+				name="advanced">
+
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

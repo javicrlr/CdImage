@@ -1,0 +1,171 @@
+/* --------------------------------------------------------
+ * Show Image CD1 for Joomla 3.3+
+ * --------------------------------------------------------
+ * Copyright (C) 2014 Javier Cruz Lora. All Rights Reserved.
+ * @license - GNU/GPL, http://www.gnu.org/licenses/gpl.html
+ * Author: Javier Cruz Lora
+ * Websites: http://www.templatef5.com
+  ---------------------------------------------------------
+ */
+  
+//Insertamos para todos los elementos
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+nav.cdimagelicont {
+	margin: 0 0 0 -15px;
+	overflow: hidden;
+	li {
+	position: relative;
+	display: block;
+	float: left;
+	overflow: hidden;
+	}
+	img {
+	height: auto;
+	z-index: -1;
+	overflow: hidden;
+	}
+}
+div.cdimagedivli {
+	height: 100%;
+	overflow: hidden;
+	> img {
+	width: 100%;
+	}
+}
+li.cdimageli {
+	margin-bottom: 15px;
+}
+.cdimage-circle {
+    border-radius: 50%;
+}
+img.cdimage-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+div.cdimagecover {
+	display: block;
+  	height: 100%;
+	width: 100%;
+  	left: 0;
+  	margin: 0 15px;
+  	position: absolute;
+  	text-align: center;
+  	top: 0;
+	z-index: 1;
+}
+div.cdimagetitle {
+	text-align: center;
+	margin: 40px 25px 10px 28px;
+	z-index: 1000;
+}
+div.cdimagetext {
+	display: none;
+	position: absolute;
+	bottom: 30px;
+	left: 40px;
+	z-index: 1000;
+	padding: 0 10px;
+	margin-right: 15px;
+	text-align: left;
+}
+div.cdimageicon {
+	display: none;
+	position: absolute;
+	opacity: 0;
+}
+.generate-cssab(@num) {
+    nav.cdimagelicont .cdcolumns-lg-@{num}{
+     	padding-right: 0px;
+    }
+    nav.cdimagelicont .cdcolumns-md-@{num}{
+      	padding-right: 0px;
+    }
+    nav.cdimagelicont .cdcolumns-sm-@{num}{
+      	padding-right: 0px;
+    }
+    nav.cdimagelicont .cdcolumns-xs-@{num}{
+      	padding-right: 0px;
+    }
+    li.cdcolumns-lg-@{num}{
+      	position: relative;
+    	min-height: 1px;
+    	padding-left: 15px;
+    	padding-right: 15px;
+    }
+    li.cdcolumns-md-@{num}{
+      	position: relative;
+    	min-height: 1px;
+    	padding-left: 15px;
+    	padding-right: 15px;
+    }
+    li.cdcolumns-sm-@{num}{
+      	position: relative;
+    	min-height: 1px;
+    	padding-left: 15px;
+    	padding-right: 15px;
+    }
+}
+.generate-cssa(@n, @i:1) when (@i =< @n) {
+    .generate-cssab(@i);
+    .generate-cssa(@n, (@i + 1));
+}
+.generate-cssa(12);
+.generate-columnsxsb(@num) {
+	li.cdcolumns-xs-@{num}{
+		width: (100% / @num);
+      	float: left;
+      	position: relative;
+    	min-height: 1px;
+    	padding-left: 15px;
+    	padding-right: 15px;
+    }
+}
+.generate-columnsxs(@n, @i:1) when (@i =< @n) {
+    .generate-columnsxsb(@i);
+    .generate-columnsxs(@n, (@i + 1));
+}
+.generate-columnsxs(12);
+@media (min-width: 768px) {
+	.generate-columnssmb(@num) {
+		li.cdcolumns-sm-@{num}{
+		  	width: (100% / @num);
+		  	float: left;
+		}
+	}
+	.generate-columnssm(@n, @i:1) when (@i =< @n) {
+    	.generate-columnssmb(@i);
+    	.generate-columnssm(@n, (@i + 1));
+	}
+	.generate-columnssm(12);
+}
+@media (min-width: 992px) {
+	.generate-columnsmdb(@num) {
+    	li.cdcolumns-md-@{num}{
+      		width: (100% / @num);
+      		float: left;
+    	}
+	}
+	.generate-columnsmd(@n, @i:1) when (@i =< @n) {
+    	.generate-columnsmdb(@i);
+    	.generate-columnsmd(@n, (@i + 1));
+	}
+	.generate-columnsmd(12);
+}
+@media (min-width: 1200px)  {
+	.generate-columnslgb(@num) {
+    	li.cdcolumns-lg-@{num}{
+      		width: (100% / @num);
+      		float: left;
+    	}
+	}
+	.generate-columnslg(@n, @i:1) when (@i =< @n) {
+    	.generate-columnslgb(@i);
+    	.generate-columnslg(@n, (@i + 1));
+	}
+	.generate-columnslg(12);
+}
