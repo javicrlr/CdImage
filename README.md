@@ -1,0 +1,2 @@
+# CdImage
+Joomla Module
